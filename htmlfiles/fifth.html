@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser event listening</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="main"></h1>
+        <h2>Time now is <span id="time"></span></h2>
+        <!--lorem45 for 45 random words-->
+        <p id="para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione magni, natus vero libero soluta
+            perferendis
+            dicta blanditiis reprehenderit fugit atque. Tempora aperiam atque officiis harum fuga, ipsa in maiores
+            cumque? Culpa ullam error omnis iste! Repudiandae odio iste quasi hic exercitationem suscipit corrupti
+            repellendus similique?</p>
+    </div>
+    <button id="btn" onclick="toggleHide()">Show/Hide</button>
+    <script>
+        let para = document.getElementById("para");
+        para.addEventListener("contextmenu", () => {
+            console.log("mouse right clicked");
+        });
+        function toggleHide() {
+            let para = document.getElementById("para");
+            let btn = document.getElementById("btn");
+
+            if (para.style.display != 'none') {
+                para.style.display = 'none';
+            } else {
+                para.style.display = 'block';
+            }
+        }
+        intervalId = setInterval(() => {
+            document.getElementById('time').innerHTML = new Date();
+        }, 1000);
+        // clearInterval(intervalId) to clear setInterval function
+
+        timeoutId = setTimeout(() => {
+            document.getElementById('main').innerHTML = 'This is Punit Gora';
+        }, 1000);
+        // clearTimeout(timeoutId) to clear setTimeout function
+    </script>
+</body>
+
+</html>
